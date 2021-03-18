@@ -1,0 +1,41 @@
+SchoolYear,OrganizationLevel,County,Total Students,Homeless,Low-Income,With Disabilities,GradeLevel
+2019-20,State,All,"1,142,491","33,328","532,789","171,650",AllGrades
+2019-20,School,Adams,10960,116,8760,1492,AllGrades
+2019-20,School,Asotin,6664,302,3627,1196,AllGrades
+2019-20,School,Benton,77546,1136,40668,10442,AllGrades
+2019-20,School,Chelan,26876,1241,15130,3573,AllGrades
+2019-20,School,Clallam,21670,510,11822,3706,AllGrades
+2019-20,School,Clark,160035,4256,67822,22828,AllGrades
+2019-20,School,Columbia,900,30,496,146,AllGrades
+2019-20,School,Cowlitz,34578,1205,20078,6247,AllGrades
+2019-20,School,Douglas,15570,512,9718,2048,AllGrades
+2019-20,School,Ferry,1802,34,1225,236,AllGrades
+2019-20,School,Franklin,43060,414,31232,6051,AllGrades
+2019-20,School,Garfield,726,0,308,104,AllGrades
+2019-20,School,Grant,43120,1732,30780,6140,AllGrades
+2019-20,School,Grays Harbor,22034,1496,15364,4115,AllGrades
+2019-20,School,Island,16938,756,6612,3052,AllGrades
+2019-20,School,Jefferson,5634,124,2838,862,AllGrades
+2019-20,School,King,612800,13253,209738,82666,AllGrades
+2019-20,School,Kitsap,"73,653",932,"23,032","11,265",AllGrades
+2019-20,School,Kittitas,10815,194,4823,1649,AllGrades
+2019-20,School,Klickitat,6379,154,3165,993,AllGrades
+2019-20,School,Lewis,25199,1100,15659,4265,AllGrades
+2019-20,School,Lincoln,4390,48,2032,642,AllGrades
+2019-20,School,Mason,20823,1514,12437,3443,AllGrades
+2019-20,School,Okanogan,21425,444,15134,3412,AllGrades
+2019-20,School,Pacific,6471,810,4188,1249,AllGrades
+2019-20,School,Pend Oreille,3337,338,2151,627,AllGrades
+2019-20,School,Pierce,282658,8187,138246,41518,AllGrades
+2019-20,School,San Juan,3704,72,1409,591,AllGrades
+2019-20,School,Skagit,39484,1244,21355,6252,AllGrades
+2019-20,School,Skamania,2268,98,1202,414,AllGrades
+2019-20,School,Snohomish,"228,523","5,943","90,113","36,356",AllGrades
+2019-20,School,Spokane,160767,4771,77855,27255,AllGrades
+2019-20,School,Stevens,12687,579,6786,1897,AllGrades
+2019-20,School,Thurston,89231,2736,37092,14314,AllGrades
+2019-20,School,Wahkiakum,1026,94,638,196,AllGrades
+2019-20,School,Walla Walla,17906,586,10718,2726,AllGrades
+2019-20,School,Whatcom,"57,714","1,668","25,031","9,955",AllGrades
+2019-20,School,Whitman,9902,142,3756,1430,AllGrades
+2019-20,School,Yakima,111097,3908,83491,16557,AllGrades
