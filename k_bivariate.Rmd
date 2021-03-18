@@ -1,0 +1,112 @@
+
+Import data
+```{r}
+location="https://github.com/G7-PUBPOL-543/wa-school-data/raw/main/2019%20Report_DistrictTotals.csv"
+schools=read.csv(location)
+```
+
+Question attempting to answer and visualize: Of WA schools that have a homeless student population, what is the frequency of homeless students in Washington state?
+```{r}
+summary(schools$Homeless)
+```
+
+```{r}
+str(schools)
+```
+
+```{r}
+length(unique(schools$DistrictName))
+```
+
+```{r}
+length(unique(schools$Homeless))
+```
+
+
+```{r}
+summary(schools$Homeless)
+```
+```{r}
+library(ggplot2)
+base=ggplot(data=schools,
+            aes(x=County,y=Homeless))
+
+base + geom_boxplot()
+```
+This is pretty messy and difficult to read the x-axis, needs to be cleaned up. Or I can simplify my data further.
+
+
+The top 5 most populous counties in WA state are: King, Pierce, Snohomish, Spokane, and Clark
+I want to create a new data frame with all of the school districts in only these Top 5 Counties
+
+```{r}
+schools[schools$County=="King"|schools$County== "Pierce"|schools$County=="Snohomish"|schools$County=="Spokane"|schools$County=="Clark",]
+```
+
+creating new variable with Top 5 Counties
+```{r}
+Top5Counties <- schools[schools$County=="King"|schools$County== "Pierce"|schools$County=="Snohomish"|schools$County=="Spokane"|schools$County=="Clark",]
+```
+
+
+
+```{r}
+library(ggplot2)
+base=ggplot(data=Top5Counties,
+            aes(x=County,y=Homeless))
+
+base + geom_bar(stat='identity')
+```
+
+```{r}
+aggregate(data=Top5Counties, Homeless~County,median)
+```
+```{r}
+aggregate(data=Top5Counties, Homeless~County,mean)
+```
+
+Previous data visual is not effective. Large outliers distort the bar graph inflating the county total, the mean or median are lost and not informative with this representation.
+Going to try to make this a histogram that is flipped
+
+```{r}
+library(ggplot2)
+base=ggplot(data=Top5Counties,
+            aes(x=County,y=Homeless))
+
+base + geom_boxplot()
+```
+```{r}
+plot2=base + geom_boxplot() + labs(title = "Homeless Students per County")
+```
+
+```{r}
+plot2 + coord_flip()
+```
+
+```{r}
+TitleLayer = list(Title = "Homesless Students in the 12th Grade",
+                   SubTi = "in the Top 5 Most Populous Counties in WA",
+                   XTi = "County",
+                   YTi = "Homeless Counts by School District",
+                   Sou = "Source: OSPI Report Card Enrollment 2019-2020 School Year")
+```
+
+
+Adding title layer
+```{r}
+plot3=plot2+ labs(title = TitleLayer$Title,
+                    subtitle = TitleLayer$SubTi,
+                    x = TitleLayer$XTi,
+                    y = TitleLayer$YTi,
+                    caption = TitleLayer$Sou)
+plot3 + coord_flip()
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+

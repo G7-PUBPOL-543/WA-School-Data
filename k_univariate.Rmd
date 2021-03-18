@@ -1,0 +1,102 @@
+Import Data
+```{r}
+location="https://github.com/G7-PUBPOL-543/wa-school-data/raw/main/2019%20Report_DistrictTotals.csv"
+
+mydata=read.csv(location)
+```
+
+Summary of variable in data frame
+```{r}
+str(mydata)
+```
+
+Variables of interest
+```{r}
+head(mydata[,c('Female','Male','Gender.X')])
+```
+
+What is the distribution of gender categories in 12th grade in WA State?
+```{r}
+dataQuestion=mydata[,c('Female','Male','Gender.X')]
+# totalizing by column 
+colSums(dataQuestion)
+```
+
+
+```{r}
+str(colSums(dataQuestion))
+```
+
+Turn into a data frame
+```{r}
+genderFrequency=as.data.frame(colSums(dataQuestion))
+genderFrequency
+```
+
+Column names
+```{r}
+names(genderFrequency)
+```
+```{r}
+#renaming
+names(genderFrequency)=c('count')
+```
+
+Adding row names as column
+```{r}
+rownames(genderFrequency)
+```
+
+```{r}
+genderFrequency$gender=rownames(genderFrequency)
+# now:
+genderFrequency
+```
+Resetting row names
+```{r}
+rownames(genderFrequency)=NULL
+genderFrequency
+```
+
+Preparing univariate plot
+```{r}
+library(RColorBrewer)
+
+library(ggplot2)
+base=ggplot(data=genderFrequency,
+            aes(x=gender,
+                y=count))
+plot1=base + geom_bar(stat='identity') + scale_y_continuous(breaks = c(175, 20000, 30000, 40000, 45000), limits = c(0, 50000))
+
+```
+
+Need labels to make total count clearer to see
+```{r}
+plot2=plot1 + geom_text(position = position_dodge(0.9),
+                               angle=360,
+                               hjust=1,
+                               vjust=-1,
+                               aes(label=count))
+```
+
+Creating titles
+```{r}
+TitleLayer = list(Title = "Gender Demographics of High School Seniors in WA State",
+                   SubTi = NULL,
+                   XTi = "Gender",
+                   YTi = "Count",
+                   Sou = "Source: OSPI Report Card Enrollment 2019-2020 School Year")
+
+
+
+```
+
+Adding title layer
+```{r}
+plot3=plot2+ labs(title = TitleLayer$Title,
+                    subtitle = TitleLayer$SubTi,
+                    x = TitleLayer$XTi,
+                    y = TitleLayer$YTi,
+                    caption = TitleLayer$Sou)
+plot3
+```
